@@ -11,6 +11,16 @@ slowly converted to recalcitrant OM ([Tranvik and Bertilsson
 
 The model is thus:
 
+dG  
+l  
+— = k G - k G  
+dt l l lrightarrow r l
+
+dG  
+r  
+— = k G + k G  
+dt r r lrightarrow r l
+
 $$
 \frac{dG_l}{dt} = k_l G_l - k_{l\rightarrow r}G_l \\
 \frac{dG_r}{dt} = k_rG_r + k_{l\rightarrow r}G_l
