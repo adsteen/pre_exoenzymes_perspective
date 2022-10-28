@@ -6,7 +6,8 @@ To make the point that exoenzymes doesn’t just affect labile organic
 matter, I have made a simple, two-component model, which contains labile
 and recalcitrant organic matter. Both labile and recalcitrant OM decay,
 but in order to capture the effect of abiotic reactions, labile OM is
-slowly converted to recalcitrant OM ([Tranvik and Bertilsson
+slowly converted to recalcitrant OM by, for instance, photochemistry
+([Tranvik and Bertilsson
 2001](https://onlinelibrary.wiley.com/doi/full/10.1046/j.1461-0248.2001.00245.x?casa_token=bPAvbpSsrowAAAAA%3Alg4u2CUXHlJGM0zy17ufH7Q-dG32LKE_l8B7H7Ed1IudfPYP0P1_KofEs2QkbdOdJ1A6LFC72Mooe5RG)).
 
 The model is thus:
