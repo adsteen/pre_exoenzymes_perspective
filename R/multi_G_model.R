@@ -1,3 +1,4 @@
+# Solves the set of diagenetic diffeqs for a single set of parameters
 multi_G_model <- function(t, x, params) {
   # Extract the state variables
   labile <- x["labile"]
@@ -21,11 +22,13 @@ multi_G_model <- function(t, x, params) {
   list(dxdt)
 }
 
+# just a wrapper for pivot_longer()
 pivot_ODE <- function(df, names_to="parameter", values_to="G") {
   df %>%
     pivot_longer(-time, names_to = names_to, values_to = values_to)
 }
 
+# Create the plot I want to display
 plot_ODE_data <- function(df, print=FALSE, theme=NULL) {
   #browser()
   p <- ggplot(df, aes(x=time, y=G, color=case))+ 
@@ -38,17 +41,13 @@ plot_ODE_data <- function(df, print=FALSE, theme=NULL) {
     p <- p + theme
   }
   
-  if(print) {
-    print(p)
-  }
-  
   p
 }
 
+# solves both diffeqs for each set of k values, concatenates results
 sim_G <- function(params.enz, params.no.enz, 
                   x.start = c(G_l = 0.75, G_r = 0.25), 
-                  times = seq(0, 100, 0.1),
-                  print.plot=TRUE) {
+                  times = seq(0, 100, 0.1)) {
   
   # Create the "base" model with extracellular enzymes
   enz <- deSolve::ode(
@@ -68,13 +67,8 @@ sim_G <- function(params.enz, params.no.enz,
     as.data.frame() %>%
     pivot_ODE()
   
-  
   d_full <- list("enzymes"=enz, "no enzymes"=no_enz) %>%
     bind_rows(.id = "case")
   
-  if(print.plot==TRUE) {
-    p <- plot_ODE_data(d_full)
-    print(p)
-  }
   d_full
 }

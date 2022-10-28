@@ -1,18 +1,15 @@
 ---
 title: "OM decay with and without exoenzymes"
 author: "Drew"
-format: html
-editor: visual
+format: gfm
+editor: source
 ---
 
 To make the point that exoenzymes doesn't just affect labile organic matter, I have made a simple, two-component model, which contains labile and recalcitrant organic matter. Both labile and recalcitrant OM decay, but in order to capture the effect of abiotic reactions, labile OM is slowly converted to recalcitrant OM ([Tranvik and Bertilsson 2001](https://onlinelibrary.wiley.com/doi/full/10.1046/j.1461-0248.2001.00245.x?casa_token=bPAvbpSsrowAAAAA%3Alg4u2CUXHlJGM0zy17ufH7Q-dG32LKE_l8B7H7Ed1IudfPYP0P1_KofEs2QkbdOdJ1A6LFC72Mooe5RG)). 
 
 The model is thus:
+![](https://latex.codecogs.com/svg.image?\frac{dG_l}{dt}&space;=&space;k_l&space;G_l&space;-&space;k_{l\rightarrow&space;r}G_l&space;\\\frac{dG_r}{dt}&space;=&space;k_rG_r&space;&plus;&space;k_{l\rightarrow&space;r}G_l)
 
-$$
-\frac{dG_l}{dt} = k_l G_l - k_{l\rightarrow r}G_l \\
-\frac{dG_r}{dt} = k_rG_r + k_{l\rightarrow r}G_l
-$$
 I've solved these differential equations using the `deSolve` package for R, and the following rate constants:
 
 . | $k_l$ | $k_{l \rightarrow r}$ | $k_r$
@@ -38,7 +35,7 @@ params.no.enz <- c("k_l" = -0.05, "k_r" = k_r, "k_l_r" = k_l_r)
 times <- seq(from = 0, to = 100, by = 0.1)
 xstart <- c(labile = 0.75, recalcitrant = 0.25)
 
-d <- sim_G(params.enz, params.no.enz, print.plot = FALSE) 
+d <- sim_G(params.enz, params.no.enz) 
 
 theme <- theme_bw() + 
   theme(panel.grid = element_blank(),
