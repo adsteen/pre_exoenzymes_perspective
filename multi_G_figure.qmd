@@ -19,7 +19,7 @@ I've solved these differential equations using the `deSolve` package for R, and 
 \frac{dG_r}{dt} = k_rG_r + k_{l\rightarrow r}G_l
 
 
- | $k_l$ | $k_{l \rightarrow r}$ | $k_r$
+ &nbsp; | $k_l$ | $k_{l \rightarrow r}$ | $k_r$
 --|--|--|--
 enzymes | -0.01 | -0.002 | 0.005
 no enzymes | -0.05 | -0.002 | 0.005

@@ -20,10 +20,10 @@ R, and the following rate constants:
 
 = k_rG_r + k\_{lr}G_l
 
-| $k_l$      | $k_{l \rightarrow r}$ | $k_r$  |       |
-|------------|-----------------------|--------|-------|
-| enzymes    | -0.01                 | -0.002 | 0.005 |
-| no enzymes | -0.05                 | -0.002 | 0.005 |
+|            | $k_l$ | $k_{l \rightarrow r}$ | $k_r$ |
+|------------|-------|-----------------------|-------|
+| enzymes    | -0.01 | -0.002                | 0.005 |
+| no enzymes | -0.05 | -0.002                | 0.005 |
 
 I’ll spare you the code, but the model plot looks like this:
 
