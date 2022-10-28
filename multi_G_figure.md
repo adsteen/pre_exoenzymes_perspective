@@ -18,8 +18,6 @@ The model is thus:
 I’ve solved these differential equations using the `deSolve` package for
 R, and the following rate constants:
 
-= k_rG_r + k\_{lr}G_l
-
 |            | $k_l$ | $k_{l \rightarrow r}$ | $k_r$ |
 |------------|-------|-----------------------|-------|
 | enzymes    | -0.01 | -0.002                | 0.005 |
